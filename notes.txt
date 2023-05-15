@@ -1,0 +1,35 @@
+// Step 4: Review the Program Specification
+
+What does the program do?
+Is a journal program that helps the user relate your day by providing a question and 
+storing the user prompt. 
+
+What user inputs does it have?
+wrinting input
+
+What output does it produce?
+output the question and the user response.
+
+How does the program end?
+by a quit option in the user menu.
+
+
+// Step 5: Determine the classes
+PromptGenerator()
+arquive the random questions and give one of them to the user answer. 
+
+userResponse()
+receive their responses.
+
+display()
+display all the user responses.
+
+
+// Step 6: Define class behaviors
+PromptGenerator()
+generate prompts.
+
+userResponse()
+
+
+display()
