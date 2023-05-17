@@ -41,17 +41,20 @@ class Program
                 }
             }
             else if (choise == "3") {
-                SaveToFile(allEntry);
+                Console.Write("What is the filename? ");
+                string filenameToSave = Console.ReadLine();
+                SaveToFile(allEntry, filenameToSave);
             }
             else if (choise == "4") {
-                List<Entry> newAllEntry = ReadFromFile(); 
+                Console.Write("What is the filename? ");
+                string filenameToLoad = Console.ReadLine();
+                allEntry = ReadFromFile(filenameToLoad); 
             }
             else if (choise == "5") {
                 quit = true;                
             }
             else {
                 Console.WriteLine("Please, insert a correct answer...");
-                quit = false;
                 quit = true;
             }
 
@@ -72,61 +75,37 @@ class Program
         return thoughtQuestion[number];
     }
 
-    public static void SaveToFile(List<Entry> allEntry)
+    public static void SaveToFile(List<Entry> allEntry, string filename)
     {
         Console.WriteLine("Saving to file...");
-        string fileName = "test.txt";
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (Entry e in allEntry)
             {
-                outputFile.WriteLine($"Date: {e._data} - Prompt: {e._question}");
-                outputFile.WriteLine($"{e._userPrompt}.");
+                outputFile.WriteLine($"{e._data},{e._question},{e._userPrompt}");
             }
         }
     }
 
-    public static List<Entry> ReadFromFile()
+    public static List<Entry> ReadFromFile(string filename)
     {
         Console.WriteLine("Loading from file...");
         List<Entry> allEntry = new List<Entry>();
-        string fileName = "test.txt";
 
-        string[] lines = System.IO.File.ReadAllLines(fileName);
+        string[] lines = System.IO.File.ReadAllLines(filename);
 
         foreach (string line in lines)
         {
-            Console.WriteLine(line);
+            string[] parts = line.Split(",");
+            Entry newEntry = new Entry();
+            newEntry._data = parts[0];
+            newEntry._question = parts[1];
+            newEntry._userPrompt = parts[2];
+
+            allEntry.Add(newEntry);
         }
 
         return allEntry;
     }
 }
-
-
-// promp 
-// ask user text. 
-// save his text. 
-
-// display his texts that has been saved. 
-
-// save his journal with a program name / or overwrite one with the same name.
-
-// load a journal asking the program name
-
-// quit the code.
-
-
-// list of frases that will result in a prompt of the user
-
-// someway to display the journal that the user is writing. 
-
-// save the journay, the user will prompt a filename and will be creted a txt with
-// this name or will replace a creted journal.txt.
-
-// someway to load the txt.
-
-// menu
-
-// leave way
