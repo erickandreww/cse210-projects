@@ -22,6 +22,7 @@ class Program
             string choise = Console.ReadLine();
             // Main code
             if (choise == "1") {
+                // Writing
                 string question = PromptGenerator();
                 Console.WriteLine(question);
 
@@ -34,6 +35,8 @@ class Program
                 allEntry.Add(entry);
             }
             else if (choise == "2") {
+                // Display
+
                 foreach (Entry e in allEntry)
                 {
                     e.DisplayPrompt();
@@ -41,21 +44,27 @@ class Program
                 }
             }
             else if (choise == "3") {
-                Console.Write("What is the filename? ");
-                string filenameToSave = Console.ReadLine();
-                SaveToFile(allEntry, filenameToSave);
+                // Save
+                Console.Write("What is the filename (just the name, no file format)?");
+                Journal journal = new Journal();
+                journal._filename = Console.ReadLine();
+                journal._entry = allEntry;
+                journal.SaveToFile();
             }
             else if (choise == "4") {
-                Console.Write("What is the filename? ");
-                string filenameToLoad = Console.ReadLine();
-                allEntry = ReadFromFile(filenameToLoad); 
+                // Load
+                Console.Write("What is the filename (just the name, no file format)? ");
+                Journal journal = new Journal();
+                journal._filename = Console.ReadLine();
+                allEntry = journal.ReadFromFile(); 
             }
             else if (choise == "5") {
+                // Quit
                 quit = true;                
             }
             else {
                 Console.WriteLine("Please, insert a correct answer...");
-                quit = true;
+                quit = false;
             }
 
         }
@@ -64,11 +73,17 @@ class Program
     static string PromptGenerator()
     {
         List <string> thoughtQuestion = new List<string> {
+            "What brought me the most peace today?",
+            "If I could relive one part of today, what would it be?",
+            "Who brought me closer to Jesus Christ today?",
+            "What was my best action today?",
+            "What made me the happiest today?",
+            "What made me reflect on who I am today?", 
             "Who was the most interesting person I interacted with today?", 
             "What was the best part of my day?", 
             "How did I see the hand of the Lord in my life today?",
             "What was the strongest emotion I felt today?", 
-            "If I had one thing I could do over today, what would it be?"
+            "If I had one thing I could do over today, what would it be?" 
         };
         Random randomGenerator = new Random();
         int number = randomGenerator.Next(0, 4);
