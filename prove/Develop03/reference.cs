@@ -6,17 +6,9 @@ public class Reference
     private string _book;
     private string _chapter;
     private string _verse;
-    private string _addVerse = "";
+    private string _addVerse;
 
-    // Reference Constructors
-    private Reference() 
-    {
-        _reference = $"{_book} {_chapter} :{_verse}";
-    }
-    private Reference(string addVerse) 
-    {
-        _reference = $"{_book} {_chapter}:{_verse}-{_addVerse}";
-    }
+    // Reference 
 
     private void ReferenceLibrary()
     {
@@ -26,12 +18,14 @@ public class Reference
         _book = "John";
         _chapter = "8";
         _verse = "12";
+        _addVerse = "";
 
         if (_addVerse != "") {
-            Reference(_addVerse);
+            
+            _reference = $"{_book} {_chapter}:{_verse}-{_addVerse}";
         }
         else {
-            Reference();
+            _reference = $"{_book} {_chapter}:{_verse}";
         }
     }
 

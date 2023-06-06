@@ -2,16 +2,42 @@ using System;
 
 class Words 
 {
-    private string _word;
-    private bool _isHidden = false;
+    private string[] _words;
+    private string _hiddenWord;
+    private string _scripture;
 
-    // public string HideWords(scripture) 
-    // {
-        
-    // }
 
-    // private List<> IsHidden(List<stringList>)
-    // {
+    public string HideRandomWords(string scripture) 
+    {
+        _words = scripture.Split(' ');
+        Random random = new Random();
+        for (int i = 0; i < _words.Length; i++)
+        {
+            if (random.Next(2) == 0) // Hide word with 50% probability
+            {
+                _words[i] = HideWord(_words[i]);
+            }
+        }
+        return string.Join(" ", _words);
+    }
 
-    // }
+    private string HideWord(string word)
+    {
+        _hiddenWord = "";
+
+        foreach (char c in word)
+        {
+            if (char.IsLetter(c))
+            {
+                _hiddenWord += "_";
+            }
+            else
+            {
+                _hiddenWord += c;
+            }
+        }
+
+        return _hiddenWord;
+    }
 }
+    
