@@ -2,6 +2,7 @@ using System;
 
 public class Reference 
 {
+    // variables to hold the values and information
     private string _reference;
     private string _book;
     private List<List<string>> _holdRefer = new List<List<string>>();
@@ -13,9 +14,7 @@ public class Reference
 
     private void ReferenceLibrary()
     {
-        // will have a list of references in this list the reference will be in a list.
-        // the variables will get the parts by [0].
-        // library = ... {"John", 8, 12, ""}
+        // Reference Library
         _holdRefer.Add(new List<string> {"John", "8","12",""});
         _holdRefer.Add(new List<string> {"Matthew", "5","14","16"});
         _holdRefer.Add(new List<string> {"John", "7","3",""});
@@ -27,16 +26,18 @@ public class Reference
     }
 
     private void randomReference() {
+        // Generate a random number
         Random rNumber = new Random();
         int number = rNumber.Next(1, 8);
+        // Take a random reference from the library
         List<string> refer = _holdRefer[number];
-
+        // set the values to the variables
         _book = refer[0];
         _chapter = int.Parse(refer[1]);
         _verse = int.Parse(refer[2]);
         _addVerse = refer[3];
 
-
+        // verify if the scripture have a addVerse
         if (_addVerse != "") {
             
             _reference = $"{_book} {_chapter}:{_verse}-{_addVerse}";
@@ -48,6 +49,7 @@ public class Reference
 
     public string GetReference()
     {
+        // class the modules and return the reference
         ReferenceLibrary();
         randomReference();
         return _reference;
