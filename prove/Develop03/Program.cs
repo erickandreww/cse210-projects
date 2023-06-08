@@ -5,12 +5,12 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        // call scripture class
-        Scripture scrp = new Scripture();
-        string scripture = scrp.GetScripture();
-        // call referece class
+        // call reference class
         Reference refer = new Reference();
         string reference = refer.GetReference();
+        // call scripture class
+        Scripture scrp = new Scripture(reference);
+        string scripture = scrp.GetScripture();
         // Show the scripture
         Console.WriteLine($"{reference} {scripture}.");
         Console.WriteLine();
@@ -21,12 +21,11 @@ class Program
         bool erased = false;
         bool finish = false; 
         int count = 0;
-        while (finish == false && count < 6) {
+        while (finish == false && count < 4) {
             if (userPrompt == "") {
                 Console.Clear();
-                Words word = new Words();
-                string newScripture = word.HideRandomWords(scripture);
-                scripture = newScripture;
+                Words word = new Words(scripture);
+                scripture = word.HideRandomWords(count);
                 Console.WriteLine($"{reference} {scripture}.");
                 Console.WriteLine();
                 erased = true;
