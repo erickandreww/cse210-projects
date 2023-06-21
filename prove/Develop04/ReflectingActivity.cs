@@ -11,25 +11,36 @@ class ReflectingActivity : Activity
         _description = "This activity will help you reflect";
     }
 
-    public void startReflection() 
+    public void startReflection(int time) 
     {
-        FirstMessage();
-        Console.Write("How long, in seconds, would you like for your session? ");
-        _time = int.Parse(Console.ReadLine());
+        _time = time;
         getReady();
 
         Console.WriteLine("Consider the following prompt: ");
         randomPrompt();
-        Console.WriteLine(_reflectionMessage);
-        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.WriteLine($"--- {_reflectionMessage} ---");
+        Console.Write("When you have something in mind, press enter to continue. ");
         Console.ReadLine();
 
+        Console.Write("You may begin in: ");
+        countDown(5);
+        Console.Clear();
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_time);
+
+        while ((DateTime.Now < endTime)) {
+            Console.Write("> How did you feel when it was complete? ");
+            Spinner(15);
+        }
         
-        
+        Console.WriteLine("Well Done!!");
+        Console.WriteLine($"You have completed another {_time} seconds of Reflecting Activity");
+        Spinner(5);
     }
 
     private void randomPrompt() {
-        _reflectionMessage = "--- Think of a time when you did something really dificult. ---";
+        _reflectionMessage = "Think of a time when you did something really dificult.";
     }
 
 

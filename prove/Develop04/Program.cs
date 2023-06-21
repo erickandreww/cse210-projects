@@ -31,6 +31,11 @@ class Program
             }
             else if (select == "2") {
                 Console.WriteLine(2);
+                ReflectingActivity refl = new ReflectingActivity();
+                refl.FirstMessage();
+                Console.Write("How long, in seconds, would you like for your session? ");
+                int time = int.Parse(Console.ReadLine());
+                refl.startReflection(time);
             }
             else if (select == "3") {
                 Console.WriteLine(3);
