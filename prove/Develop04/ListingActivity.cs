@@ -44,7 +44,7 @@ class ListingActivity : Activity
         itemCount = 0;
 
         while ((DateTime.Now < endTime)) {
-            Console.Write(" >");
+            Console.Write(" > ");
             Console.ReadLine();
             itemCount ++;
         }

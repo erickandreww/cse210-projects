@@ -8,7 +8,7 @@ class BreathingActivity : Activity
     public BreathingActivity()
     {
         _activityName = "Breathing Activity";
-        _description = "This activity will help you relax by walking yoir through breathing in and out \nslowly. Clear your mind and focus on your breathing.";
+        _description = "This activity will help you relax by walking yoir through breathing in and out slowly. Clear your mind and focus on your breathing.";
         _b1 = "Breathe in...";
         _b2 = "Breathe out...";
     }
