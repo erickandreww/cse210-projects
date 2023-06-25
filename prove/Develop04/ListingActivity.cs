@@ -2,7 +2,7 @@ using System;
 
 class ListingActivity : Activity
 {
-    private int itemCount;
+    private int _itemCount;
     private string _message;
     private List<string> _listingMessages = new List<string>();
 
@@ -43,19 +43,19 @@ class ListingActivity : Activity
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_time);
         Console.WriteLine();
-        itemCount = 0;
+        _itemCount = 0;
 
         while ((DateTime.Now < endTime)) {
             Console.Write(" > ");
             Console.ReadLine();
-            itemCount ++;
+            _itemCount ++;
         }
         Console.WriteLine();
-        if (itemCount == 1) {
-            Console.WriteLine($"You listed {itemCount} item!");
+        if (_itemCount == 1) {
+            Console.WriteLine($"You listed {_itemCount} item!");
         }
         else {
-            Console.WriteLine($"You listed {itemCount} items!");
+            Console.WriteLine($"You listed {_itemCount} items!");
         }
     }
 }
