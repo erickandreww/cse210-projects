@@ -12,7 +12,8 @@ class ListingActivity : Activity
         _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
     }
 
-    private void randomListingMessages() 
+    // this module will add the list messages to the listingMessages list and will get a random message
+    private void RandomListingMessages() 
     {
         _listingMessages.Add("Who are people that you appreciate?");
         _listingMessages.Add("What are personal strengths of yours?");
@@ -26,17 +27,18 @@ class ListingActivity : Activity
         _message = _listingMessages[number];
     }
 
-    public void startListing(int time) 
+    // this module is the main module for the activity works.
+    public void StartListing(int time) 
     {
         _time = time;
         GetReady();
 
         Console.WriteLine("List as many responses you can to the following prompt: ");
-        randomListingMessages();
+        RandomListingMessages();
         Console.WriteLine($"--- {_message} ---");
         Console.WriteLine();
         Console.Write("You may begin in: ");
-        countDown(5);
+        CountDown(5);
         
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_time);

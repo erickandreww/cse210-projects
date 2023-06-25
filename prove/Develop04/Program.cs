@@ -37,7 +37,7 @@ class Program
                 Console.Write("How long, in seconds, would you like for your session? ");
                 int time = int.Parse(Console.ReadLine());
                 // calling the main module of the class
-                breath.startBreathing(time);
+                breath.StartBreathing(time);
                 // printing the last part of the activity
                 breath.LastMessage();
             }
@@ -48,7 +48,7 @@ class Program
                 Console.WriteLine();
                 Console.Write("How long, in seconds, would you like for your session? ");
                 int time = int.Parse(Console.ReadLine());
-                refl.startReflection(time);
+                refl.StartReflection(time);
                 refl.LastMessage();
             }
             // Listing Activity will run
@@ -58,7 +58,7 @@ class Program
                 Console.WriteLine();
                 Console.Write("How long, in seconds, would you like for your session? ");
                 int time = int.Parse(Console.ReadLine());
-                list.startListing(time);
+                list.StartListing(time);
                 list.LastMessage();
             }
             // Math Activity, is a additional activity

@@ -13,7 +13,8 @@ class BreathingActivity : Activity
         _b2 = "Breathe out...";
     }
 
-    public void startBreathing(int time) 
+    // this module is the main module for the activity works.
+    public void StartBreathing(int time) 
     {
         _time = time;
         GetReady();
@@ -24,10 +25,10 @@ class BreathingActivity : Activity
         while ((DateTime.Now < endTime)) {
             Console.WriteLine();
             Console.Write(_b1);
-            countDown(4);
+            CountDown(4);
             Console.WriteLine();
             Console.Write(_b2);
-            countDown(6);
+            CountDown(6);
             Console.WriteLine();
         }
 

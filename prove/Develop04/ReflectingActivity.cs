@@ -13,26 +13,27 @@ class ReflectingActivity : Activity
         _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
     }
 
-    public void startReflection(int time) 
+    // this module is the main module for the activity works.
+    public void StartReflection(int time) 
     {
         _time = time;
         GetReady();
 
         Console.WriteLine("Consider the following prompt: \n");
-        randomReflectionMessage();
+        RandomReflectionMessage();
         Console.WriteLine($"--- {_reflectionMessage} ---");
         Console.Write("\nWhen you have something in mind, press enter to continue. ");
         Console.ReadLine();
 
         Console.Write("You may begin in: ");
-        countDown(5);
+        CountDown(5);
         Console.Clear();
 
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_time);
 
         while ((DateTime.Now < endTime)) {
-            randomReflectionQuestion();
+            RandomReflectionQuestion();
             Console.Write($"> {_reflectionQuestion} ");
             Spinner(5);
             if (DateTime.Now > endTime) {
@@ -44,8 +45,9 @@ class ReflectingActivity : Activity
         Console.WriteLine();   
     }
 
-    private void randomReflectionMessage() {
-        addOnLists();
+    // this module will get a random message from the messages list
+    private void RandomReflectionMessage() {
+        AddOnLists();
 
         Random rNumber = new Random();
         int number = rNumber.Next(_reflectionMessages.Count);
@@ -53,7 +55,8 @@ class ReflectingActivity : Activity
         _reflectionMessage = _reflectionMessages[number];
     }
 
-    private void randomReflectionQuestion() 
+    // this module will get a random question from the questions list
+    private void RandomReflectionQuestion() 
     {
         Random rNumber = new Random();
         int number = rNumber.Next(_reflectionQuestions.Count);
@@ -61,7 +64,8 @@ class ReflectingActivity : Activity
         _reflectionQuestion = _reflectionQuestions[number];
     }
 
-    private void addOnLists() {
+    // this module will add the messages and question to their lists.
+    private void AddOnLists() {
         _reflectionMessages.Add("Think of a time when you stood up for someone else.");
         _reflectionMessages.Add("Think of a time when you did something really difficult.");
         _reflectionMessages.Add("Think of a time when you helped someone in need.");

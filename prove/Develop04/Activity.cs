@@ -7,12 +7,14 @@ public class Activity
     protected int _time; 
     protected List<string> _animationString = new List<string>();
 
+    // This module will print the initial message of the activities, with it's name and description.
     public void FirstMessage() 
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} \n \n{_description}");
     }
 
+    // This module will print the final message of the activities.
     public void LastMessage() 
     {
         Console.WriteLine();
@@ -21,6 +23,7 @@ public class Activity
         Spinner(5);
     }
 
+    // this module wil run the get ready prompt for all the activities.
     protected void GetReady() 
     {
         Console.Clear();
@@ -28,8 +31,9 @@ public class Activity
         Spinner(3);
     } 
 
+    // This module will run the Spinnet animation for all the other classes
     public void Spinner(int time) {
-        animationAdd();
+        AnimationAdd();
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(time);
 
@@ -48,7 +52,8 @@ public class Activity
         }
     }
 
-    public void countDown(int time)
+    // this module will suport all the other classes with a countdown time
+    public void CountDown(int time)
     {
         for (int i = time; i > 0; i--){
             Console.Write(i);
@@ -57,7 +62,8 @@ public class Activity
         }
     }
 
-    private void animationAdd() {
+    // This module will add the animation spinner to the list
+    private void AnimationAdd() {
         _animationString.Add("|");
         _animationString.Add("/");
         _animationString.Add("-");

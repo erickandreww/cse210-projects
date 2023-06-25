@@ -19,6 +19,7 @@ class MathActivity : Activity
         _correct = 0;
     }
 
+    // this module is the main module for the activity works.
     public void StartMath(int time)
     {
         _time = time;
@@ -55,6 +56,7 @@ class MathActivity : Activity
         Console.WriteLine($"You missed {_incorrect}. ");  
     }
 
+    // This module will set random numbers between 1 and 99.
     private void AccountConstructor() 
     {
         Random number = new Random();
