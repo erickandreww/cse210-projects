@@ -13,6 +13,7 @@ class Program
         
         bool end = false;
         int points = 0;
+        List<Goals> myGoals = new List<Goals>();
         
         while (end != true) 
         {
@@ -23,19 +24,34 @@ class Program
             string select = Console.ReadLine();
             if (select == "1") {
                 foreach (string secMen in secondMenu) {Console.WriteLine(secMen);}
+                Console.Write("Which Tipe of goal would you like to create? ");
                 string goalSelect = Console.ReadLine();
-                if (select == "1") {
-                Console.WriteLine("Goal 1");
+                if (goalSelect == "1") {
+                    Console.WriteLine("Simple Goal");
+
+                    SimpleGoals simple = new SimpleGoals();
+                    myGoals.Add(simple);
                 }
-                else if (select == "2") {
-                    Console.WriteLine("Goal 2");
+                else if (goalSelect == "2") {
+                    Console.WriteLine("Eternal Goal");
+
+                    EternalGoals eternal = new EternalGoals();
+                    myGoals.Add(eternal);
                 }
-                else if (select == "3") {
-                    Console.WriteLine("Goal 3");
+                else if (goalSelect == "3") {
+                    Console.WriteLine("Checklist Goal");
+
+                    ChecklistGoals checkGoal = new ChecklistGoals();
+                    myGoals.Add(checkGoal);
                 }
             }
             else if (select == "2") {
-                Console.WriteLine(2);
+                Console.WriteLine("The goals are:");
+                for (int i = 0; i < myGoals.Count; i++) 
+                {
+                    string goal = myGoals[i].Display();
+                    Console.WriteLine($"{i+1}. {goal}");
+                }
             }
             else if (select == "3") {
                 Console.WriteLine(3);
@@ -66,3 +82,14 @@ class Program
 // all the goals will have the different things, and all of the classes will need 
 // to have a displayGoals, that will work to display acording to the type of the goal (class)
 // 
+
+// a save diference like, the simples is
+// name, description, points, *bool
+// Eternal: name, description, points
+// Checklist: name, description, points, bonuspoints, times, actualtimes
+
+// GetPoints module
+
+// level up by completing goals
+
+
