@@ -1,9 +1,3 @@
-using System;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello Foundation3 World!");
-    }
-}
+//Regardless of the type, all events need to 
+// have an Event Title, Description, Date, 
+// Time, and Address.
