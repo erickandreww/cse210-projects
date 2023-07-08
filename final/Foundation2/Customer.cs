@@ -11,6 +11,6 @@ public class Customer
 
     public void WhereLive(string addressContent) 
     {
-        _costumerAdress = GetAddress();
+        // _costumerAdress = GetAddress();
     }
 }
