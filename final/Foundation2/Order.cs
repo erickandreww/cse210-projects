@@ -32,7 +32,7 @@ public class Order
     public string PackingLabel()
     {
         foreach (List<string> product in _products) {
-            Product packing = new Product(product[0], float.Parse(product[1]), int.Parse(product[2]), int.Parse(product[3]);
+            Product packing = new Product(product[0], float.Parse(product[1]), int.Parse(product[2]), int.Parse(product[3]));
         }
         return "";
     }
