@@ -58,18 +58,19 @@ class Program
             new List<string> {"Lara",  "I love watching life hack videos. They always inspire me to be more efficient and creative."}, 
             new List<string> {"Mary", "I've seen a few of these hacks before, but there are some new ones that I haven't tried. Great video!"}
         };
-
+        // Add comments
         foreach (List<string> comment in commentsVideo2) {
             Comment videoComment = new Comment();
             videoComment._personName = comment[0];
             videoComment._personComment = comment[1];
             video2._commentsList.Add(videoComment.AddComment());
         }
-
+        // Add comments
         // Comments video 3
         List<List<string>> commentsVideo3 = new List<List<string>>() {
             new List<string> {"Daniel", "These tips have improved my photography skills so much! Can't wait to try them out during my next photoshoot."}, 
-            new List<string> {"Rebecca", "I just got a new camera, and these tips are exactly what I needed to kickstart my photography journey. Thanks!"}
+            new List<string> {"Rebecca", "I just got a new camera, and these tips are exactly what I needed to kickstart my photography journey. Thanks!"},
+            new List<string> {"Donald", "I've been interested in photography for a while now, and these tips are incredibly helpful. You explained them so well!"}
         };
 
         foreach (List<string> comment in commentsVideo3) {
@@ -82,7 +83,9 @@ class Program
         // Comments video 4
         List<List<string>> commentsVideo4 = new List<List<string>>() {
             new List<string> {"Luna", "As someone who is trying to lose weight, these recipes are exactly what I needed. Thank you for sharing!"}, 
-            new List<string> {"Andrew", "These recipes look delicious and healthy. I'm definitely going to incorporate them into my diet."}
+            new List<string> {"Andrew", "These recipes look delicious and healthy. I'm definitely going to incorporate them into my diet."},
+            new List<string> {"Illyana", "I've tried a few of these recipes before, and they are absolutely amazing. Can't wait to try the rest!"},
+            new List<string> {"Erick", "I appreciate that these recipes are not only healthy but also easy to make. Great video!"}
         };
 
         foreach (List<string> comment in commentsVideo4) {

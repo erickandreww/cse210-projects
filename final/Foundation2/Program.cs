@@ -5,3 +5,13 @@
 // the shipping label, and the total price 
 // of the order, and display the results of 
 // these methods.
+
+using System;
+
+class Program 
+{
+    public static void Main(string[] args)
+    {
+        
+    }
+}
