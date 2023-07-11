@@ -7,7 +7,12 @@ using System;
 public class Customer
 {
     private string _costumerName;
-    private string _costumerAdress;
+    private List<string> _costumerAdress;
+
+    public Customer(string name, List<string> address) 
+    {
+        _costumerName = name;
+    }
 
     public void WhereLive(string addressContent) 
     {

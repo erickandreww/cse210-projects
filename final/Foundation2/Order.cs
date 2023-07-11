@@ -22,10 +22,8 @@ public class Order
 
     public string ShippingLabel()
     {
-        List<string> address = new List<string> {
-            _customer[1], _customer[2], _customer[3],_customer[4]
-        };
-        
+        Address ad = new Address(_customer[1], _customer[2], _customer[3],_customer[4]);
+        Customer custom = new Customer(_customer[0]);         
         return "";
     }
 
