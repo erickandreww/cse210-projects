@@ -15,7 +15,7 @@ public class Customer
         _address = new Address(street, city, state, country);
     }
 
-    public bool WhereLive(string addressContent) 
+    public bool WhereLive() 
     {
         return _address.IsUsa();
     }

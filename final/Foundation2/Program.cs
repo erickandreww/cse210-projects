@@ -73,7 +73,7 @@ class Program
             new List<string> {"Bread", "1.99", "2", "218"},
             new List<string> {"Milk", "3.49", "1", "376"},
             new List<string> {"Chicken", "5.99", "2", "642"},
-            new List<string> {"Eggs", "0.20", "12", "529"}, 
+            new List<string> {"Eggs", "0.25", "12", "529"}, 
             new List<string> {"Cheese", "3.99", "1", "852"},
         };
         Order order4 = new Order(order4Products, order4Customer);

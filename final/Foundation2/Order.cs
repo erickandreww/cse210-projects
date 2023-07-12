@@ -13,6 +13,7 @@ public class Order
 {
     private List<List<string>> _products = new List<List<string>>();
     private List<string> _customer = new List<string>();
+    private bool _freight;
 
     public Order(List<List<string>> products, List<string> customer) 
     {
@@ -24,7 +25,8 @@ public class Order
     {
         Customer custom = new Customer(_customer[0], _customer[1], _customer[2], _customer[3],_customer[4]);
         string name = custom.GetCostumerName();
-        string address = custom.GetCostumerAddress();      
+        string address = custom.GetCostumerAddress();    
+        _freight = custom.WhereLive();
         return $"{name} \n{address}";
     }
 
@@ -42,10 +44,15 @@ public class Order
     {
         float total = 0;
         foreach (List<string> product in _products) {
-            Product calculate = new Product(float.Parse(product[2]), int.Parse(product[3]));
+            Product calculate = new Product(float.Parse(product[1]), int.Parse(product[2]));
             total += calculate.GetPrice();
         }
-        
+        if (_freight == true) {
+            total += 5;
+        }
+        else {
+            total += 35;
+        }
         return total;
     }
 }
