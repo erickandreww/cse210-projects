@@ -29,9 +29,9 @@ public class Product
         return _productPrice * _productQuantity;
     }
 
-    private void ProductsList() 
+    public string GetProduct() 
     {
-        
+        return $"{_productName}, ID:#{_productID}";
     }
 }
 

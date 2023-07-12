@@ -7,15 +7,26 @@ using System;
 public class Customer
 {
     private string _costumerName;
-    private List<string> _costumerAdress;
+    private Address _address;
 
-    public Customer(string name, List<string> address) 
+    public Customer(string name, string street, string city, string state, string country) 
     {
         _costumerName = name;
+        _address = new Address(street, city, state, country);
     }
 
-    public void WhereLive(string addressContent) 
+    public bool WhereLive(string addressContent) 
     {
-        // _costumerAdress = GetAddress();
+        return _address.IsUsa();
+    }
+
+    public string GetCostumerAddress() 
+    {
+        return _address.GetAddress();
+    }
+
+    public string GetCostumerName()
+    {
+        return _costumerName;
     }
 }

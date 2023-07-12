@@ -22,17 +22,20 @@ public class Order
 
     public string ShippingLabel()
     {
-        Address ad = new Address(_customer[1], _customer[2], _customer[3],_customer[4]);
-        Customer custom = new Customer(_customer[0]);         
-        return "";
+        Customer custom = new Customer(_customer[0], _customer[1], _customer[2], _customer[3],_customer[4]);
+        string name = custom.GetCostumerName();
+        string address = custom.GetCostumerAddress();      
+        return $"{name} \n{address}";
     }
 
     public string PackingLabel()
     {
+        string productList = "";
         foreach (List<string> product in _products) {
             Product packing = new Product(product[0], float.Parse(product[1]), int.Parse(product[2]), int.Parse(product[3]));
+            productList += $"{packing.GetProduct()}\n";
         }
-        return "";
+        return productList;
     }
 
     public float TotalCost() 
@@ -42,7 +45,7 @@ public class Order
             Product calculate = new Product(float.Parse(product[2]), int.Parse(product[3]));
             total += calculate.GetPrice();
         }
+        
         return total;
     }
-
 }
