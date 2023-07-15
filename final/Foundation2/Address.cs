@@ -6,11 +6,13 @@ using System;
 
 public class Address
 {
+    // variables to hold all address info
     private string _street;
     private string _city;
     private string _stateOrProvince;
     private string _country;
 
+    // A method to set the complete address
     public Address(string street, string city, string state, string country) 
     {
         _street = street;
@@ -19,6 +21,7 @@ public class Address
         _country = country;
     }
 
+    // A method to verify if the customer lives in USA
     public bool IsUsa()
     {
         if (_country == "USA") {
@@ -29,6 +32,7 @@ public class Address
         }
     }
 
+    // A method to get the Address
     public string GetAddress() {
         return $"{_street}, {_city}, {_stateOrProvince}, {_country}";
     }

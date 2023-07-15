@@ -11,16 +11,19 @@ using System;
 
 public class Order 
 {
+    // variables to hold the lists and the freight info
     private List<List<string>> _products = new List<List<string>>();
     private List<string> _customer = new List<string>();
     private bool _freight;
 
+    // a Contructor to set the customer and products list
     public Order(List<List<string>> products, List<string> customer) 
     {
         _products = products;
         _customer = customer;
     }
 
+    // A method to return a string with the Shipping Label
     public string ShippingLabel()
     {
         Customer custom = new Customer(_customer[0], _customer[1], _customer[2], _customer[3],_customer[4]);
@@ -30,6 +33,7 @@ public class Order
         return $"{name} \n{address}";
     }
 
+    // A method to return a string with the Packing Label
     public string PackingLabel()
     {
         string productList = "";
@@ -39,7 +43,8 @@ public class Order
         }
         return productList;
     }
-
+    
+    // A method to return the total cost of the products
     public float TotalCost() 
     {
         float total = 0;

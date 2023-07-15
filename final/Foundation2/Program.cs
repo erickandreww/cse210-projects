@@ -12,6 +12,9 @@ class Program
 {
     public static void Main(string[] args)
     {
+        // Introduction
+        Console.WriteLine("Online Ordering Program");
+        Console.WriteLine();
         // order 1
         List<string> order1Customer = new List<string>() {
             "Lara", "123 Main Street", "Anytown", "CA", "USA"};
@@ -88,12 +91,13 @@ class Program
         
     }
 
+    // A Display method to print each Order
     public static void Display(string shipping, string label, float total) {
         Console.WriteLine($"{shipping}"); 
         Console.WriteLine($"\nProduct List:"); 
         Console.WriteLine($"{label}"); 
         Console.WriteLine($"Total value: {total}"); 
-        Console.WriteLine("\n\n"); 
+        Console.WriteLine("\n----------------------------------------\n");
     }
 
 
