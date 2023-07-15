@@ -2,6 +2,7 @@ using System;
 
 class Event
 {
+    // variables to hold all necessary information
     protected string _title; 
     protected string _description;
     protected string _date;
@@ -10,6 +11,7 @@ class Event
     protected string _eventType;
     protected string _eventInfo;
 
+    // a contructor to define general information, that are title. description, date, time and address
     public Event(string title, string description, string date, string time, string address) 
     {
         _title = title;
@@ -19,6 +21,7 @@ class Event
         _address = address;
     }
 
+    // Standard details - Lists the title, description, date, time, and address.
     public void Standard() 
     {
         // Lists the title, description, date, 
@@ -29,6 +32,7 @@ class Event
         Console.WriteLine($"Location: {_address}");
     }
 
+    // Full details - Lists all of the Standard method information, plus type of event and information specific to that event type.
     public void Full()
     {
         // Lists all of the above, plus 
@@ -42,6 +46,7 @@ class Event
         Console.WriteLine(_eventInfo);
     }
 
+    // Short description - Lists the type of event, title, and the date.
     public void Short()
     {
         // Lists the type of event, title, and the date.
