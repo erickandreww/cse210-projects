@@ -12,6 +12,7 @@ class Program
 {
     public static void Main(string[] args)
     {
+        Console.WriteLine("Youtube Videos Program: \n");
 
         // Video 1
         Video video1 = new Video();
