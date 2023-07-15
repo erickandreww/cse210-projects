@@ -24,8 +24,8 @@ class Event
         // Lists the title, description, date, 
         // time, and address.
         Console.WriteLine($"Event Title: {_title}");
-        Console.WriteLine($"Description: {_description}");
-        Console.WriteLine($"{_date} at {_time}");
+        Console.WriteLine($"\"{_description}\"");
+        Console.WriteLine($"Date: {_date} at {_time}");
         Console.WriteLine($"Location: {_address}");
     }
 
@@ -39,9 +39,7 @@ class Event
         // For outdoor gatherings, this includes a statement of the weather.
         Standard();
         Console.WriteLine($"Event Type: {_eventType}");
-        Console.WriteLine($"{_eventInfo}");
-
-
+        Console.WriteLine(_eventInfo);
     }
 
     public void Short()
@@ -49,7 +47,7 @@ class Event
         // Lists the type of event, title, and the date.
         Console.WriteLine($"Event Type: {_eventType}");
         Console.WriteLine($"Event Title: {_title}");
-        Console.WriteLine($"{_date}");
+        Console.WriteLine($"Date: {_date}");
     }
 
 }
