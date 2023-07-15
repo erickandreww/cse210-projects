@@ -2,20 +2,17 @@ using System;
 
 class Comment 
 {
+    // variables to hold the person name and his comment
     public string _personName;
     public string _personComment;
 
+    // a method to return the name and comment in a list
     public List<string> AddComment() 
     {
         List<string> comment = new List<string> {
             $"{_personName}", $"{_personComment}"};
         return comment;
     }
-
-    // _holdRefer.Add(new List<string> {"Proverbs", "3","5","6"});
 }
 
-// has the responsibility for tracking both 
-// the name of the person who made the comment 
-// and the text of the comment
 

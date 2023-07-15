@@ -2,16 +2,19 @@ using System;
 
 class Video 
 {
+    // variables to hold video informations 
     public string _title; 
     public string _description;
     public int _videoLenght;
     public List<List<string>> _commentsList = new List<List<string>>();
 
+    // method to return the number of comments 
     public int numberComments()
     {
         return _commentsList.Count;
     }
 
+    // method to display all video information
     public void Display() 
     {
         Console.WriteLine($"Video Title: {_title}");
@@ -25,11 +28,3 @@ class Video
         Console.WriteLine();
     }
 }
-
-
-// track the title, author, and length 
-// (in seconds) of the video
-
-// Each video also has responsibility to store
-// a list of comments, and should have a method 
-// to return the number of comments
