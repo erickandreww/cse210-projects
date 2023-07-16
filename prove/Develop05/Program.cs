@@ -13,39 +13,40 @@ class Program
         
         bool end = false;
         int points = 0;
+        string level = levelUp(points);
         List<Goals> myGoals = new List<Goals>();
         
         while (end != true) 
         {
-            Console.WriteLine($"\nYou have {points} points\n");
+            Console.WriteLine($"\nYou have {points} points");
+            Console.WriteLine($"Level: {level}\n");
             Console.WriteLine("Menu Options");
             foreach (string men in menu) {Console.WriteLine(men);}
             Console.Write("Select a choise from the menu: ");
             string select = Console.ReadLine();
             if (select == "1") {
                 foreach (string secMen in secondMenu) {Console.WriteLine(secMen);}
+                Console.WriteLine();
                 Console.Write("Which Tipe of goal would you like to create? ");
                 string goalSelect = Console.ReadLine();
                 if (goalSelect == "1") {
                     Console.WriteLine("Simple Goal");
-
                     SimpleGoals simple = new SimpleGoals();
                     myGoals.Add(simple);
                 }
                 else if (goalSelect == "2") {
                     Console.WriteLine("Eternal Goal");
-
                     EternalGoals eternal = new EternalGoals();
                     myGoals.Add(eternal);
                 }
                 else if (goalSelect == "3") {
                     Console.WriteLine("Checklist Goal");
-
                     ChecklistGoals checkGoal = new ChecklistGoals();
                     myGoals.Add(checkGoal);
                 }
             }
             else if (select == "2") {
+                Console.WriteLine();
                 Console.WriteLine("The goals are:");
                 for (int i = 0; i < myGoals.Count; i++) 
                 {
@@ -54,24 +55,64 @@ class Program
                 }
             }
             else if (select == "3") {
-                Console.WriteLine(3);
+                Console.Write("What is the Filename for the goal file? ");
+                string filename = Console.ReadLine();
+                Record save = new Record(myGoals, filename, points);
+                save.Saving();
             }
             else if (select == "4") {
-                Console.WriteLine(4);
+                Console.Write("What is the Filename for the goal file? ");
+                string filename = Console.ReadLine();
+                Record load = new Record(filename);
+                myGoals = load.Loading();
+                points = load.GetPoints();
             }
             else if (select == "5") {
-                Console.WriteLine(5);
+                int goalNumber;
+                Console.WriteLine("The Goals are: ");
+                for (int i = 0; i < myGoals.Count; i++) {
+                    string goalName = myGoals[i].getName();
+                    Console.WriteLine($"{i+1}. {goalName}");
+                }
+                Console.Write("Which goal did you accomplish? ");
+                goalNumber = int.Parse(Console.ReadLine());
+
+                if (goalNumber > myGoals.Count+1 || goalNumber == 0) {
+                    Console.WriteLine("This goal does not exist");
+                }
+                else {
+                    points += myGoals[goalNumber-1].Complete();
+                    Console.WriteLine($"You now have {points} points.");
+                }
             }
             else if (select == "6") {
-                Console.WriteLine();
-                Console.WriteLine("quit");       
+                Console.WriteLine();      
                 end = true;         
             }
             else {
                 Console.WriteLine("Please insert a corect answer");
                 end = false;
             }
+            level = levelUp(points);
         }
+    }
+
+    public static string levelUp(int points) {
+        List<string> levels = new List<string>{
+            "Begginer", "Middle", "Advanced"
+        };
+        int upgrade = 500;
+        string actualLevel = "";
+        foreach (string level in levels) {
+            if (points >= upgrade) 
+            {
+                upgrade += 500;
+            }
+            else {
+                actualLevel = level;
+            }
+        }
+        return actualLevel;
     }
 }
 
@@ -93,3 +134,7 @@ class Program
 // level up by completing goals
 
 
+// actual title/level: 
+// level acording to how many activities the person completed, 
+// or how many points they have
+// levels will be here

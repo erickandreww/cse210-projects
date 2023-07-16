@@ -19,9 +19,24 @@ public abstract class Goals
         _pointsValue = int.Parse(Console.ReadLine());
     }
 
+    public Goals(string activityName, string goalName, string description, string pointsValue)
+    {
+        _goalName = goalName;
+        _description = description;
+        _pointsValue = int.Parse(pointsValue);
+        _activityName = activityName;
+    }
+
     public abstract string GetGoal();
 
+    public string getName()
+    {
+        return _goalName;
+    }
+
     public abstract string Display();
+
+    public abstract int Complete();
 
     protected void StatusOfGoal()
     {
