@@ -68,12 +68,6 @@ class Record
         }
         return _myGoals;
     }
-
-    // a method to set the points
-    public void SetPoints(int points) 
-    {
-        _points = points;
-    }
     
     // a method to get the points
     public int GetPoints()
