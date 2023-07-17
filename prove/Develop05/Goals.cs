@@ -10,7 +10,7 @@ public abstract class Goals
     protected bool _goalStatus;
     protected string _isCompleted;
 
-    // A contrutor to get the goal initial information
+    // A constructor to get the goal initial information
     public Goals() 
     {
         Console.Write("What is the name of your goal? ");
@@ -21,7 +21,7 @@ public abstract class Goals
         _pointsValue = int.Parse(Console.ReadLine());
     }
 
-    // a contrutor to work with the save and load class
+    // a constructor to work with the save and load class
     public Goals(string activityName, string goalName, string description, string pointsValue)
     {
         _goalName = goalName;
@@ -30,7 +30,7 @@ public abstract class Goals
         _activityName = activityName;
     }
 
-    // a abstract method to return the goal in a string
+    // an abstract method to return the goal in a string
     public abstract string GetGoal();
 
     // a method to return the goal name
