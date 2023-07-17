@@ -21,7 +21,7 @@ class Program
         while (end != true) 
         {
             Console.WriteLine($"\nYou have {points} points");
-            Console.WriteLine($"Level: {level}\n");
+            Console.WriteLine(level);
             Console.WriteLine("Menu Options");
             foreach (string men in menu) {Console.WriteLine(men);}
             Console.Write("Select a choise from the menu: ");
@@ -108,7 +108,10 @@ class Program
     // A method to cate of the levels
     public static string levelUp(int points) {
         List<string> levels = new List<string>{
-            "Begginer", "Middle", "Advanced"
+            "Level 1: Goal Setter", "Level 2: Aspiration Adventurer", "Level 3: Persistence Prodigy", 
+            "Level 4: Hurdle Hero", "Level 5: Ambition Artiste", "Level 6: Success Sculptor",
+            "Level 7: Achievement Architect", "Level 8: Triumph Tactician", "Level 9: Success Sorcerer",
+            "Level 10: Master Dreamcatcher"
         };
         int upgrade = 500;
         string actualLevel = "";
