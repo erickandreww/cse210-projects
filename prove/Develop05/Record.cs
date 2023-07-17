@@ -5,15 +5,15 @@ class Record
     private string _filename;
     private int _points;
     private string _goal;
-    List<Goals> _myGoals = new List<Goals>();
+    private List<Goals> _myGoals = new List<Goals>();
 
-    // a contrutor to load a file
+    // a constructor to load a file
     public Record(string filename)
     {
         _filename = filename;
     }
 
-    // a construtor to save a file
+    // a constructor to save a file
     public Record(List<Goals> list, string filename, int points)
     {
         _filename = filename;
@@ -81,5 +81,5 @@ class Record
         return _points;
     }
 
-    // need to call the goal and put the goal acording to the goal type
+    // need to call the goal and put the goal according to the goal type
 }
