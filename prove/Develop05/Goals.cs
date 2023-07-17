@@ -34,7 +34,7 @@ public abstract class Goals
     public abstract string GetGoal();
 
     // a method to return the goal name
-    public string getName()
+    public string GetName()
     {
         return _goalName;
     }
