@@ -7,10 +7,13 @@ class Record
     private string _goal;
     List<Goals> _myGoals = new List<Goals>();
 
+    // a contrutor to load a file
     public Record(string filename)
     {
         _filename = filename;
     }
+
+    // a construtor to save a file
     public Record(List<Goals> list, string filename, int points)
     {
         _filename = filename;
@@ -18,6 +21,7 @@ class Record
         _points = points;
     }
 
+    // A method to save a file
     public void Saving() 
     {
         string csvFilename = _filename + ".csv";
@@ -33,6 +37,7 @@ class Record
         }
     }
 
+    // A method to load a file
     public List<Goals> Loading()
     {
         string csvFilename = _filename + ".csv";
@@ -64,11 +69,13 @@ class Record
         return _myGoals;
     }
 
+    // a method to set the points
     public void SetPoints(int points) 
     {
         _points = points;
     }
-
+    
+    // a method to get the points
     public int GetPoints()
     {
         return _points;

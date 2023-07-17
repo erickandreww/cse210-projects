@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        // A list to show the menu
         List <string> menu = new List <string> 
             {"   1. Create New Goal","   2. List Goals", 
             "   3. Save Goals", "   4. Load Goals",
@@ -11,11 +12,12 @@ class Program
         List <string> secondMenu = new List <string> 
             {"   1. Simple Goal", "   2. Eternal Goal", "   3. Checklist Goal"};
         
+        // variables for the loop, points and level
         bool end = false;
         int points = 0;
         string level = levelUp(points);
         List<Goals> myGoals = new List<Goals>();
-        
+        // while loop to run the menu
         while (end != true) 
         {
             Console.WriteLine($"\nYou have {points} points");
@@ -24,6 +26,7 @@ class Program
             foreach (string men in menu) {Console.WriteLine(men);}
             Console.Write("Select a choise from the menu: ");
             string select = Console.ReadLine();
+            // menu to select the type of goal
             if (select == "1") {
                 foreach (string secMen in secondMenu) {Console.WriteLine(secMen);}
                 Console.WriteLine();
@@ -45,6 +48,7 @@ class Program
                     myGoals.Add(checkGoal);
                 }
             }
+            // Print the goals list
             else if (select == "2") {
                 Console.WriteLine();
                 Console.WriteLine("The goals are:");
@@ -54,12 +58,14 @@ class Program
                     Console.WriteLine($"{i+1}. {goal}");
                 }
             }
+            // Save the goals
             else if (select == "3") {
                 Console.Write("What is the Filename for the goal file? ");
                 string filename = Console.ReadLine();
                 Record save = new Record(myGoals, filename, points);
                 save.Saving();
             }
+            // Load the goals
             else if (select == "4") {
                 Console.Write("What is the Filename for the goal file? ");
                 string filename = Console.ReadLine();
@@ -67,6 +73,7 @@ class Program
                 myGoals = load.Loading();
                 points = load.GetPoints();
             }
+            // Record goals
             else if (select == "5") {
                 int goalNumber;
                 Console.WriteLine("The Goals are: ");
@@ -84,6 +91,7 @@ class Program
                     points += myGoals[goalNumber-1].Complete();
                     Console.WriteLine($"You now have {points} points.");
                 }
+            // Quit
             }
             else if (select == "6") {
                 Console.WriteLine();      
@@ -97,6 +105,7 @@ class Program
         }
     }
 
+    // A method to cate of the levels
     public static string levelUp(int points) {
         List<string> levels = new List<string>{
             "Begginer", "Middle", "Advanced"
@@ -108,8 +117,9 @@ class Program
             {
                 upgrade += 500;
             }
-            else {
+            else if (points < upgrade) {
                 actualLevel = level;
+                break;
             }
         }
         return actualLevel;

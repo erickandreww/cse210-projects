@@ -2,11 +2,14 @@ using System;
 
 public class SimpleGoals : Goals
 {
+
+    // A contrutor to get the goal initial information
     public SimpleGoals() : base()
     {
         _activityName = "SimpleGoals";
     }
 
+    // a construtor to work with tha save and load class
     public SimpleGoals(string activityName, string goalName, string description, string pointsValue, 
     string boolean) : base(activityName, goalName, description, pointsValue)
     {
@@ -18,6 +21,7 @@ public class SimpleGoals : Goals
         }
     }
 
+    // method to return the goal in a string
     public override string GetGoal() 
     {
         if (_goalStatus == true) {
@@ -28,6 +32,7 @@ public class SimpleGoals : Goals
         }
     }
 
+    // a override method to mark goal complete and return the points
     public override int Complete()
     {
         if (_goalStatus == true) {
@@ -40,7 +45,8 @@ public class SimpleGoals : Goals
             return _pointsValue;
         }
     }
-
+    
+    // a override method to display the goal name, description, and if is completed or not
     public override string Display()
     {
         StatusOfGoal();

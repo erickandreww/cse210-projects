@@ -6,6 +6,7 @@ public class ChecklistGoals : Goals
     private int _numberTimes;
     private int _actualTime;
 
+    // A contrutor to get the goal initial information
     public ChecklistGoals() : base()
     {
         _activityName = "ChecklistGoals";
@@ -15,6 +16,8 @@ public class ChecklistGoals : Goals
         _bonusPoints = int.Parse(Console.ReadLine());
         _actualTime = 0;
     }
+
+    // a construtor to work with tha save and load class
     public ChecklistGoals(string activityName, string goalName, string description, string pointsValue, 
     string bonus, string actualTimes, string times) : base(activityName, goalName, description, pointsValue)
     {
@@ -29,11 +32,13 @@ public class ChecklistGoals : Goals
         }
     }
 
+    // method to return the goal in a string
     public override string GetGoal() 
     {
         return $"{_activityName},{_goalName},{_description},{_pointsValue},{_bonusPoints},{_actualTime},{_numberTimes}";
     }
 
+    // a override method to mark goal complete and return the points
     public override int Complete() {
         if (_actualTime == _numberTimes) {
             Console.WriteLine("This goal has already been completed");
@@ -51,6 +56,7 @@ public class ChecklistGoals : Goals
         }
     }
     
+    // a override method to display the goal name, description, and if is completed or not
     public override string Display()
     {
         StatusOfGoal();
